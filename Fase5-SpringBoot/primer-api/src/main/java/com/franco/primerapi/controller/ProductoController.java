@@ -35,9 +35,55 @@ public class ProductoController {
         return baseDeDatos;
     }
 
+    @GetMapping("/{id}")
+    public Producto obtenerPorId(@PathVariable int id) {
+        for (Producto p : baseDeDatos) {
+            if (p.getId() == id) {
+                return p;
+            }
+        }
+        return null;
+    }
+
     @PostMapping
     public Producto agregarProducto(@RequestBody Producto nuevoProducto) {
         baseDeDatos.add(nuevoProducto);
         return nuevoProducto;
+    }
+
+    @DeleteMapping("/{id}")
+    public String borrar(@PathVariable int id) {
+        //removeIf devuelve true si borro algo
+        boolean borrado = baseDeDatos.removeIf(p -> p.getId() == id);
+        return borrado ? "Borrando ID: " + id : "No encontrado";
+    }
+
+    //PUT MODIFICA EL OBJETO ENTERO Y PATCH UNA PARTE(un atributo o mas, pero no necesita modificar todo)
+    @PutMapping("/{id}")
+    public Producto actualizarCompleto(@PathVariable int id, @RequestBody Producto prodNuevo) {
+        for (Producto p : baseDeDatos) {
+            if (p.getId() == id) {
+                p.setNombre(prodNuevo.getNombre());
+                p.setPrecio(prodNuevo.getPrecio());
+                return p;
+            }
+        }
+        return null;
+    }
+
+    @PatchMapping("/{id}")
+    public Producto actualizarParcial(@PathVariable int id, @RequestBody Producto datosParciales) {
+        for (Producto p : baseDeDatos) {
+            if (p.getId() == id) {
+                if (datosParciales.getNombre() != null) {
+                    p.setNombre(datosParciales.getNombre());
+                }
+                if (datosParciales.getPrecio() > 0) {
+                    p.setPrecio(datosParciales.getPrecio());
+                }
+                return p;
+            }
+        }
+        return null;
     }
 }
