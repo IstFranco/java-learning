@@ -1,0 +1,138 @@
+{
+  "info": {
+    "_postman_id": "cd7f1c18-c43b-4abc-98ea-ff67e53d6104",
+    "name": "My Collection",
+    "description": "### Welcome to Postman! This is your first collection. \n\nCollections are your starting point for building and testing APIs. You can use this one to:\n\n• Group related requests\n• Test your API in real-world scenarios\n• Document and share your requests\n\nUpdate the name and overview whenever you’re ready to make it yours.\n\n[Learn more about Postman Collections.](https://learning.postman.com/docs/collections/collections-overview/)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "51522771",
+    "_collection_link": "https://go.postman.co/collection/51522771-cd7f1c18-c43b-4abc-98ea-ff67e53d6104?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Listar Tareas",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"titulo\": \"Tarea de Prueba\",\r\n    \"descripcion\": \"Esta es una tarea de ejemplo para la demo\",\r\n    \"prioridad\": \"MEDIA\",\r\n    \"fechaLimite\": \"2026-05-20\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/tareas",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "tareas"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Craer Tarea",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"titulo\": \"Tarea de Prueba\",\r\n    \"descripcion\": \"Esta es una tarea de ejemplo para la demo\",\r\n    \"prioridad\": \"MEDIA\",\r\n    \"fechaLimite\": \"2026-05-20\"\r\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/tareas",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "tareas"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Buscar por ID",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"titulo\": \"Tarea de Prueba\",\r\n    \"descripcion\": \"Esta es una tarea de ejemplo para la demo\",\r\n    \"prioridad\": \"MEDIA\",\r\n    \"fechaLimite\": \"2026-05-20\"\r\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/tareas/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "tareas",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Finalizar Tarea",
+      "request": {
+        "method": "PATCH",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"titulo\": \"Tarea de Prueba\",\r\n    \"descripcion\": \"Esta es una tarea de ejemplo para la demo\",\r\n    \"prioridad\": \"MEDIA\",\r\n    \"fechaLimite\": \"2026-05-20\"\r\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/tareas/3/finalizar",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "tareas",
+            "3",
+            "finalizar"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Eliminar Tarea",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/tareas/3",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "tareas",
+            "3"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
