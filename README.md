@@ -33,9 +33,14 @@ En la carpeta `/Proyectos` voy subiendo las aplicaciones funcionales que desarro
 
 Mi primer proyecto backend completo. Es una API para gestionar tareas diarias.
 
-![Demo de la API](Proyectos/gestor-tareas/img/getTest.png)
-![ID automatico](Proyectos/gestor-tareas/img/postFail.png)
-![Carga correcta](Proyectos/gestor-tareas/img/postTest.png)
+
+#### 📸 Demo de Funcionalidad
+
+**1. Crear una Tarea (POST):**
+![Crear Tarea](Proyectos/gestor-tareas/img/postTest.png)
+
+**2. Listar todas las Tareas (GET):**
+![Listar Tareas](Proyectos/gestor-tareas/img/getTest.png)
 
 * **Tech Stack:** Java 21, Spring Boot, PostgreSQL.
 * **Qué hace:**
