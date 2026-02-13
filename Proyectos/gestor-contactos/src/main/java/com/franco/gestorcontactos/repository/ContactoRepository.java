@@ -9,4 +9,7 @@ public interface ContactoRepository extends JpaRepository<Contacto, Long> {
     java.util.Optional<Contacto> findByTelefono(String t);
     //Basicamente el repository sirve para crear nuestras consultas que no vienen por defecto.
 
+    boolean existsByEmail(String email);
+    boolean existsByTelefono(String telefono);
+    boolean existsByDni(String dni);
 }
