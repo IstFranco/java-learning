@@ -1,5 +1,6 @@
 package com.franco.conceptorelaciones.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -25,4 +26,12 @@ public class Equipo {
     // cascade = CascadeType.ALL: Si borro el Equipo, se borran sus Jugadores (no es obligatorio, pero estoy probando cosas, asiq lo voy a poner).
     @OneToMany(mappedBy = "equipo", cascade = ALL)
     private List<Jugador> jugadores;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "Tecnico_id") // Crea una FK en la tabla Equipo
+    private Tecnico tecnico;
+
+    @OneToMany(mappedBy = "equipo", cascade = CascadeType.ALL)
+    @JsonIgnore
+    private List<Inscripcion> inscripcions;
 }

@@ -1,6 +1,7 @@
 package com.franco.conceptorelaciones.controller;
 
 import com.franco.conceptorelaciones.model.Equipo;
+import com.franco.conceptorelaciones.model.Tecnico;
 import com.franco.conceptorelaciones.services.EquipoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -34,7 +35,12 @@ public class EquipoController {
         return equipoService.actualizarEquipo(id, equipo);
     }
 
-    @DeleteMapping("/{id}")
+    @PatchMapping("/{id}")
+    public Equipo cambiarTecnico(@PathVariable Long id, @RequestBody Tecnico tecnico) {
+        return equipoService.cambiarTecnico(id, tecnico);
+    }
+
+    @DeleteMapping("/{id}/tecnico")
     public String eliminarEquipo(@PathVariable Long id) {
         return equipoService.eliminarEquipo(id);
     }

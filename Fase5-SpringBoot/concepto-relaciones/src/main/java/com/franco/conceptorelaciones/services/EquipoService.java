@@ -2,6 +2,7 @@ package com.franco.conceptorelaciones.services;
 
 import com.franco.conceptorelaciones.model.Equipo;
 import com.franco.conceptorelaciones.model.Jugador;
+import com.franco.conceptorelaciones.model.Tecnico;
 import com.franco.conceptorelaciones.repository.EquipoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -40,6 +41,17 @@ public class EquipoService {
         equipoExistente.setNombre(equipoActualizado.getNombre());
         equipoExistente.setCiudad(equipoActualizado.getCiudad());
 
+        if (equipoActualizado.getTecnico() != null && equipoExistente.getTecnico() != null) {
+            equipoExistente.getTecnico().setNombre(equipoActualizado.getTecnico().getNombre());
+            equipoExistente.getTecnico().setPreferenciaTactica(equipoActualizado.getTecnico().getPreferenciaTactica());
+        }
+
+        return equipoRepository.save(equipoExistente);
+    }
+
+    public Equipo cambiarTecnico(Long id, Tecnico tecnico) {
+        Equipo equipoExistente = obtenerEquipoPorId(id);
+        equipoExistente.setTecnico(tecnico);
         return equipoRepository.save(equipoExistente);
     }
 
